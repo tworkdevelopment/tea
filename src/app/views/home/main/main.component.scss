@@ -1,0 +1,54 @@
+/*accordion*/
+
+.container.questions {
+  max-width: 880px;
+}
+
+#accordion div {
+  padding: 10px 0 20px 23px;
+}
+
+.ui-icon-triangle-1-s {
+  background-position: 0 0;
+}
+
+.ui-icon-triangle-1-e {
+  background-position: 0 0;
+  transform: rotate(180deg);
+}
+
+.accordion-button {
+  color: white !important;
+  background: linear-gradient(360deg, #076BFF 0%, #007BFF 100%) !important;
+}
+
+.accordion-button:focus {
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.accordion {
+  ////--bs-accordion-btn-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e)  !important;
+  --bs-accordion-btn-icon: url('../../../../assets/images/down-arrow.png')  !important;
+}
+
+.accordion-body, accordion-collapse {
+  border: 0 solid #fff !important;
+}
+
+button.accordion-button::after {
+  --bs-accordion-btn-active-icon: url('../../../../assets/images/down-arrow.png') !important;
+}
+
+button.accordion-button::after:focus {
+  //transform: rotate(180deg);
+}
+//#exampleModalCenter {
+//  opacity: 0 !important;
+//}
+.modal-header {
+  border-bottom: none !important;
+}
+.modal-footer {
+  border-top: none !important;
+}

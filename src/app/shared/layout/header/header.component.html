@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg bg-light pt-3 pb-3 mb-4 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-normal fs-5 align-middle lh-sm" href="#">Logo</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a aria-current="page" class="nav-link lh-sm" [routerLink]="''" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-normal lh-sm" [routerLink]="'/products'" routerLinkActive="active">Каталог</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" [formGroup]="searchForm">
+        <div class="invalid-feedback" *ngIf="searchForm.get('search')?.invalid
+               && (searchForm.get('search')?.touched || searchForm.get('search')?.dirty)
+               && searchForm.get('search')?.errors?.['required'] ">
+          Для поиска введите данные
+        </div>
+
+        <input aria-label="Search" class="form-control me-2 lh-base rounded-1" placeholder="Поиск чая"
+               type="search"
+         [(ngModel)]="searchValue.search" formControlName="search">
+        <button class="btn btn-outline-primary hvr-sweep-to-left" type="submit" (click)="search()" [disabled]="!searchForm.valid">Найти</button>
+      </form>
+
+    </div>
+  </div>
+</nav>

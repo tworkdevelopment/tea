@@ -1,0 +1,100 @@
+<div class="container-fluid mt-5 mb-5">
+
+  <!--banner    -->
+  <div class="container-xxl pt-5 pb-5 mb-5 ">
+    <div class="single-item ">
+      <div>
+        <img alt="carousel1" class="img-fluid" src="../../../../assets/images/carousel1.png">
+      </div>
+    </div>
+  </div>
+
+
+  <!--    accordion-->
+
+  <div class="container questions pb-5">
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h2 class="display-4 fw-bold  mb-3 pb-2  fs-2 lh-lg">Ответы на часто задаваемые вопросы</h2>
+    </div>
+
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item border-0">
+        <h3 class="accordion-header">
+          <button class="accordion-button fw-bold rounded-3 p-4  " type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Собираете ли вы подарочные боксы?
+          </button>
+        </h3>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body pt-4 border-0">
+            Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус,
+            объем и стоимость!
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item mt-2 border-0 rounded-3">
+        <h2 class="accordion-header">
+          <button class="accordion-button fw-bold collapsed rounded-3 p-4 " type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Сколько у вас разновидностей чая?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body pt-4">
+            Не знаю, но от каждого вида удивительно штырит!
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item border-0 mt-2">
+        <h2 class="accordion-header">
+          <button class="accordion-button fw-bold collapsed rounded-3 p-4 " type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            В какой срок осуществляется доставка?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body pt-4">
+            Как только поступят деньги на счет!
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item border-0  mt-2">
+        <h2 class="accordion-header">
+          <button class="accordion-button fw-bold collapsed rounded-3 p-4 " type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            У вас обновляется ассортимент?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body pt-4">
+            Конечно!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade show" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+     aria-modal="true" role="dialog" [ngStyle]="{'display': display === 'block' ? 'block' : 'none'}">
+  <div class="modal-bg bg-black opacity-50 position-fixed w-100 h-100"></div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+      </div>
+      <div class="modal-body border-0 d-flex justify-content-center">
+        <h4>Посмотрите наши чайные коллекции</h4>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary" [routerLink]="'/products'">Смотреть</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+
+    <div class="container-md w-50 wow animate__backInUp" id="order">
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center" *ngIf="!hideForm">
+        <h2 class="display-4 fw-bold mt-5 pt-2 mb-4  fs-2 lh-lg">Сделать заказ</h2>
+      </div>
+
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center" *ngIf="hideForm">
+        <h2 class="display-4 fw-bold mt-5 pt-5 mb-4  fs-2 lh-lg">Спасибо за заказ</h2>
+      </div>
+
+      <form class="row g-3 needs-validation border-0" novalidate [formGroup] = "checkoutForm" *ngIf="!hideForm"
+      (ngSubmit)="createOrder()"
+      >
+
+        <div class="col-md-4">
+          <label class="form-label" for="firstName">Имя</label>
+          <input class="form-control rounded-1" id="firstName" type="text"
+                 formControlName="firstName">
+          <div class="w-100" *ngIf="checkoutForm.get('firstName')?.invalid && (checkoutForm.get('firstName')?.touched || checkoutForm.get('firstName')?.dirty)">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('firstName')?.errors?.['required']">
+              Поле имя обязательно.
+            </div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('firstName')?.errors?.['pattern']">
+              Неправильное введено имя.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label" for="lastName">Фамилия</label>
+          <input class="form-control rounded-1" id="lastName" type="text"
+                 formControlName="lastName">
+          <div class="w-100" *ngIf="checkoutForm.get('lastName')?.invalid && (checkoutForm.get('lastName')?.touched || checkoutForm.get('lastName')?.dirty)">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('lastName')?.errors?.['required']">
+              Поле имя обязательно.
+            </div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('lastName')?.errors?.['pattern']">
+              Неправильное введено имя.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label" for="phone">Телефон</label>
+            <input class="form-control rounded-1" id="phone" type="text"
+                   [(ngModel)]="formValues.phone" formControlName="phone">
+          <div class="w-100" *ngIf="checkoutForm.get('phone')?.invalid && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty)">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['required']">
+              Номер телефона обязательно.
+            </div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">
+              Неправильно введен телефон.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="country">Страна</label>
+          <input class="form-control rounded-1" id="country" required type="text"
+                 [(ngModel)]="formValues.country" formControlName="country">
+          <div class="w-100" *ngIf="checkoutForm.get('country')?.invalid && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty)">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.errors?.['required']">
+              Укажите обязательно страну.
+            </div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('country')?.errors?.['pattern']">
+              Допустимы буквы, дефис и пробел.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-6 mb-1">
+          <label class="form-label" for="zip">Индекс</label>
+          <input class="form-control rounded-1" id="zip" type="text"
+                [(ngModel)]="formValues.zip" formControlName="zip">
+          <div class="w-100" *ngIf="checkoutForm.get('zip')?.invalid && (checkoutForm.get('zip')?.touched || checkoutForm.get('zip')?.dirty)">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.errors?.['required']">
+              Укажите обязательно почтовый индекс.
+            </div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.errors?.['pattern']">
+              Варианты записи индекса: LV-1235 / 123456 / LV1236 (не более 8 символов).
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="address">Адрес</label>
+          <input class="form-control rounded-1" id="address" required type="text"
+                 [(ngModel)]="formValues.address"  formControlName="address">
+          <div class="w-100" *ngIf="checkoutForm.get('address')?.invalid && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty)">
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['required']">
+              Укажите обязательно адрес.
+            </div>
+            <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['pattern']">
+              Недопустимые символы в адресе (только буквы, цифры, - , / , и пробел).
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="product">Товар</label>
+          <input class="form-control rounded-1" id="product" required type="text"
+                 [(ngModel)]="formValues.product" formControlName="product">
+        </div>
+
+
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="comment">Комментарий к заказу (не обязательно)</label>
+          <input class="form-control rounded-1" id="comment"  type="text"
+                 [(ngModel)]="formValues.comment" formControlName="comment">
+        </div>
+
+        <div class="col-12 mt-4 d-flex">
+          <button class="button_submit btn btn-primary w-25 border-0 rounded-2 hvr-curl-bottom-right "
+              id="create-order"
+             [disabled]="checkoutForm.invalid || checkoutForm.disabled">Отправить
+          </button>
+        <div class="show_error text-danger d-flex ms-5 align-content-center" *ngIf="showError">Произошла ошибка. Попробуйте еще раз.</div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container-md d-none w-75 mt-5 text-center border border-1 border-primary rounded-2 pt-4 pb-3"
+         id="formUp" *ngIf="hideForm">
+      <h2> Спасибо за заказ! <span class="d-block"> Мы свяжемся с Вами в ближайшее время!</span></h2>
+    </div>

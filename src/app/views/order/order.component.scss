@@ -1,0 +1,14 @@
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+@media screen and (max-width: 656px) {
+  .button_submit {
+    min-width: 100%;
+  }
+}

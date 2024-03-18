@@ -1,0 +1,12 @@
+<div class="col h-100">
+  <div class="card h-100">
+      <img class="object-fit-fill" alt="card1" src="{{product.image}}">
+    <div class="card-body ps-4 pt-3 pb-3 mt-1 mb-1">
+
+      <custom-title [title]="product.title"> </custom-title>
+
+      <p class="card-text pt-1 pb-2">{{product.description | countSymbols: 200}}</p>
+      <a class="btn btn-primary " [routerLink]="['/products', product.id]">Подробнее</a>
+    </div>
+  </div>
+</div>
