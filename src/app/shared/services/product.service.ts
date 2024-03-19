@@ -12,7 +12,7 @@ export class ProductService {
     throw new Error('Method not implemented.');
   }
 
-  private products: ProductType[] = [];
+  // private products: ProductType[] = [];
   private url: string = environment.apiURL;
 
   constructor(private http: HttpClient) {
@@ -41,17 +41,17 @@ export class ProductService {
     return this.http.post<{ success: boolean, message?: string }>(`${this.url}order-tea`, data)
   }
 
-  searchProduct(query: string): Observable<ProductType[]> {
-    console.log(query);
-    return this.http.get<ProductType[]>(`${this.url}tea?q=` + query).pipe(
-      map(
-        (v: any) => v?.filter((v: any) => v.title.includes(query))),
-      tap((v) => {
-          console.log(v)
-        }
-      ),
-    )
-  }
+  // searchProduct(query: string): Observable<ProductType[]> {
+  //   console.log(query);
+  //   return this.http.get<ProductType[]>(`${this.url}tea?q=` + query).pipe(
+  //     map(
+  //       (v: any) => v?.filter((v: any) => v.title.includes(query))),
+  //     tap((v) => {
+  //         console.log(v)
+  //       }
+  //     ),
+  //   )
+  // }
 
   // getProducts(queryParams: string = ''):
   //   Observable<ProductType[] | Record<string, ProductType>> {
