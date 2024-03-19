@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // if (this.searchForm.value) {
     //   this.router.navigate(['/products'], {
     //     queryParams: {search: this.searchForm.value}
-    //   })} else {
+    //   })} else
     //   this.router.navigate(['/products'])}
     // }
     //
