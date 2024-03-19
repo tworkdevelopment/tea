@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
 
-  // search() {
+  search() {
     // this.search$.next(this.searchForm.value);
     // if (this.searchForm.value) {
     //   this.router.navigate(['/products'], {
@@ -48,5 +48,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     //   this.router.navigate(['/products'])}
     // }
     //
-  // }
+  }
 }
